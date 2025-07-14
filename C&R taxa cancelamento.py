@@ -2,7 +2,7 @@ import pandas as pd
 import glob
 
 # Caminho da pasta com os arquivos
-pasta = r'C:\Users\lucas.araujo\Downloads\Compre E Retire\*.xlsx'
+pasta = r'C:\Users\nome_usuario\pasta_geral\Compre E Retire\*.xlsx'
 
 # Lista de arquivos
 arquivos = glob.glob(pasta)
@@ -43,10 +43,10 @@ relatorio['Percentual_Cancelamento'] = ((relatorio['Cancelados'] / relatorio['To
 relatorio = relatorio.sort_values(by='Percentual_Cancelamento', ascending=False)
 
 # Salva o resumo simples
-relatorio.to_excel(r'C:\Users\lucas.araujo\Downloads\Compre E Retire\relatorio_resumo.xlsx')
+relatorio.to_excel(r'C:\Usersnome_usuario\pasta_geral\Compre E Retire\relatorio_resumo.xlsx')
 
 # Salva o relatório completo com duas abas: Resumo + Base de dados
-with pd.ExcelWriter(r'C:\Users\lucas.araujo\Downloads\Compre E Retire\relatorio_completo.xlsx') as writer:
+with pd.ExcelWriter(r'C:\Users\nome_usuario\pasta_geral\Compre E Retire\relatorio_completo.xlsx') as writer:
     relatorio.to_excel(writer, sheet_name='Resumo')
     df.to_excel(writer, sheet_name='Base_Completa', index=False)
 
